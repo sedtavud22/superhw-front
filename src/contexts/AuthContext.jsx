@@ -7,10 +7,12 @@ export const AuthContext = createContext();
 
 export default function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const run = async () => {
       try {
+        setLoading(true);
         let token = localStorage.getItem("token");
         if (!token) {
           return;
@@ -18,18 +20,25 @@ export default function AuthContextProvider({ children }) {
         const res = await axios.get("http://localhost:8888/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(res.data.user);
         setUser(res.data.user);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
 
     run();
   }, []);
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    alert("Logged Out");
+    setUser(null);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, loading, logout }}>
       {children}
     </AuthContext.Provider>
   );

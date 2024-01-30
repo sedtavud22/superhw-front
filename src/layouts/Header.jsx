@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { useState } from "react";
-import { useEffect } from "react";
 
 const guestNav = [
   { to: "/", text: "Login" },
@@ -19,14 +17,7 @@ const studentNav = [
 ];
 
 const Header = () => {
-  const { user } = useAuth();
-  // const [finalNav, setFinalNav] = useState([]);
-
-  // useEffect(() => {
-  //   setFinalNav(
-  //     !user?.role ? guestNav : user.role === "teacher" ? teacherNav : studentNav
-  //   );
-  // }, [user?.role]);
+  const { user, logout } = useAuth();
 
   const finalNav = !user?.role
     ? guestNav
@@ -46,6 +37,13 @@ const Header = () => {
               <Link to={el.to}>{el.text}</Link>
             </li>
           ))}
+          {user?.role && (
+            <li>
+              <Link to="/" onClick={logout}>
+                Log Out
+              </Link>
+            </li>
+          )}
           {/* Theme Changer */}
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}

@@ -25,7 +25,6 @@ const LoginForm = () => {
         password: input.password,
       };
       const result = await axios.post("http://localhost:8888/auth/login", data);
-      console.log(result);
       localStorage.setItem("token", result.data.token);
       const result2 = await axios.get("http://localhost:8888/auth/me", {
         headers: { Authorization: `Bearer ${result.data.token}` },
