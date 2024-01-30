@@ -45,6 +45,7 @@ const RegisterForm = () => {
                 value={input.sCode}
                 placeholder="code"
                 className="input input-bordered"
+                autoComplete="off"
                 required
                 onChange={handleChangeInput}
               />
@@ -59,6 +60,7 @@ const RegisterForm = () => {
                 value={input.firstname}
                 placeholder="firstname"
                 className="input input-bordered"
+                autoComplete="off"
                 required
                 onChange={handleChangeInput}
               />
@@ -73,6 +75,7 @@ const RegisterForm = () => {
                 value={input.email}
                 placeholder="email"
                 className="input input-bordered"
+                autoComplete="off"
                 onChange={handleChangeInput}
               />
             </div>
@@ -103,11 +106,6 @@ const RegisterForm = () => {
                 required
                 onChange={handleChangeInput}
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>

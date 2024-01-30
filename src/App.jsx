@@ -1,7 +1,10 @@
+import useAuth from "./hooks/useAuth";
 import LoginForm from "./layouts/LoginForm";
 import RegisterForm from "./layouts/RegisterForm";
 
 function App() {
+  const { user } = useAuth();
+
   return (
     <>
       <div>
@@ -11,7 +14,7 @@ function App() {
           className="toggle theme-controller"
         />
       </div>
-      <RegisterForm />
+      {/* <RegisterForm /> */}
       <LoginForm />
     </>
   );
