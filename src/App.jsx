@@ -1,23 +1,7 @@
-import useAuth from "./hooks/useAuth";
-import LoginForm from "./layouts/LoginForm";
-import RegisterForm from "./layouts/RegisterForm";
+import { AppRouter } from "./routes/AppRouter";
 
 function App() {
-  const { user } = useAuth();
-
-  return (
-    <>
-      <div>
-        <input
-          type="checkbox"
-          value="light"
-          className="toggle theme-controller"
-        />
-      </div>
-      {/* <RegisterForm /> */}
-      <LoginForm />
-    </>
-  );
+  return <AppRouter />;
 }
 
 export default App;

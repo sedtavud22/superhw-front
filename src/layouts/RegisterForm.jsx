@@ -29,9 +29,9 @@ const RegisterForm = () => {
 
   return (
     <div className="hero bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <h1 className="text-3xl font-bold">Register New Student</h1>
+      <div className="hero-content flex-col">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold">Register</h1>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleSubmit}>
